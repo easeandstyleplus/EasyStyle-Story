@@ -291,6 +291,70 @@
             opacity: 0;
             animation: rise .9s .6s ease forwards;
         }
+        /* ============================================================
+   HERO — VIDEO BACKGROUND
+   ============================================================ */
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+.hero-video-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    pointer-events: none;
+}
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55); /* Ajustez l’opacité ici */
+    z-index: 1;
+    pointer-events: none;
+}
+.hero .hero-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+    padding: 6rem 1.5rem 4rem;
+    color: #ffffff;
+}
+.hero .hero-inner h1 em {
+    background: var(--grad-blue);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.hero .hero-inner .hero-eyebrow {
+    color: rgba(255,255,255,0.6);
+}
+.hero .hero-inner .lede {
+    color: rgba(255,255,255,0.75);
+}
+.hero .hero-inner .btn-ghost {
+    border-color: rgba(255,255,255,0.3);
+    color: #fff;
+}
+.hero .hero-inner .btn-ghost:hover {
+    border-color: var(--blue-1);
+    color: #fff;
+}
+.hero .hero-inner .scroll-cue {
+    color: rgba(255,255,255,0.5);
+}
+.hero .hero-inner .scroll-cue .dot {
+    background: rgba(255,255,255,0.3);
+}
+.hero .hero-inner .scroll-cue .dot::after {
+    background: var(--blue-1);
+}
         .btn {
             padding: .85rem 1.6rem;
             border-radius: 2rem;
@@ -2194,6 +2258,8 @@
             footer { padding-inline: .8rem; }
         }
 
+        
+
         @media (max-width: 360px) {
             .nav-cta { display: none; }
             .hero { padding-top: 6.2rem; }
@@ -2235,9 +2301,15 @@
     </nav>
 
     <!-- ============ HERO ============ -->
-    <header class="hero">
-        <div class="hero-orb o1"></div>
-        <div class="hero-orb o2"></div>
+    <!-- ============ HERO ============ -->
+<header class="hero">
+    <!-- Vidéo en arrière‑plan -->
+    <video class="hero-video-bg" src="assets/tutorials/intro.mp4" autoplay loop muted playsinline></video>
+    <!-- Overlay sombre -->
+    <div class="hero-overlay"></div>
+
+    <!-- Contenu du hero (inchangé) -->
+    <div class="hero-inner">
         <p class="hero-eyebrow" data-i18n="hero-eyebrow">EasyStyle+ — the story of a document</p>
         <h1 data-i18n="hero-title">Lately, writing has become <em>simpler.</em></h1>
         <p class="lede" data-i18n="hero-lede">A report to format, a theme to pick, a table of contents to fine-tune — here's how a document comes to life, step by step.</p>
@@ -2246,7 +2318,8 @@
             <a class="btn btn-ghost" href="#story" data-i18n="hero-cta-secondary">See the journey</a>
         </div>
         <div class="scroll-cue"><span data-i18n="scroll-cue">Scroll</span><span class="dot"></span></div>
-    </header>
+    </div>
+</header>
 
     <!-- ============ INTRO COURTE ============ -->
     <section class="intro-strip">
@@ -2530,18 +2603,6 @@
     </div>
 
     <div class="media-grid">
-        <!-- 1. Intro -->
-        <div class="media-card" data-video="assets/tutorials/intro.mp4">
-            <div class="media-thumb">
-                <div class="play-icon">▶</div>
-                <span class="duration">0:30</span>
-            </div>
-            <div class="media-body">
-                <h4 data-i18n="media-intro-title">Présentation</h4>
-                <p data-i18n="media-intro-desc">L’outil en un coup d’œil.</p>
-            </div>
-        </div>
-
         <!-- 2. Parcours complet -->
         <div class="media-card" data-video="assets/tutorials/theme-template-editor-demo.mp4">
             <div class="media-thumb">
